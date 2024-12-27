@@ -1,0 +1,55 @@
+.card {
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.card-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e9ecef;
+}
+.tab-content {
+    display: none;
+}
+.tab-content.active {
+    display: block;
+}
+.nav-tabs .nav-link {
+    cursor: pointer;
+}
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+}
+.data-label {
+    font-weight: 600;
+    color: #6c757d;
+    font-size: 0.875rem;
+}
+.data-value {
+    color: #212529;
+    margin-bottom: 0.5rem;
+}
+.search-container {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+}
+.search-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+.search-field {
+    flex: 1;
+}
+.no-results {
+    text-align: center;
+    padding: 2rem;
+    color: #6c757d;
+}
+.highlight {
+    background-color: #fff3cd;
+    padding: 0 2px;
+}

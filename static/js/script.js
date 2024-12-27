@@ -41,22 +41,18 @@ document.addEventListener('DOMContentLoaded', function () {
         // Filter the data
         const filteredData = dataStore[section].filter(item => {
             return Object.entries(searchTerms).every(([field, term]) => {
-                if (!term) return true; // Skip empty search terms
-                
-                // Handle combined fields (like first name + last name)
+                if (!term) return true; 
                 if (field.includes(',')) {
                     const fields = field.split(',');
                     const combinedValue = fields.map(f => item[f]).join(' ').toLowerCase();
                     return combinedValue.includes(term);
                 }
                 
-                // Handle regular fields
                 const value = String(item[field] || '').toLowerCase();
                 return value.includes(term);
             });
         });
 
-        // Render the filtered data
         renderData(section, filteredData);
     }
 
@@ -90,7 +86,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const card = document.createElement('div');
             card.className = 'card';
             
-            // Create card content based on section
             switch(section) {
                 case 'inventions':
                     card.innerHTML = createInventionCard(item, searchTerms);
@@ -226,7 +221,6 @@ document.addEventListener('DOMContentLoaded', function () {
         `;
     }
 
-    // Fetch and initialize data
     function fetchAndInitialize(endpoint, section) {
         fetch(endpoint)
             .then(response => response.json())
@@ -237,8 +231,7 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .catch(error => console.error(`Error fetching ${section}:`, error));
     }
-
-    // Initialize all sections
+    
     fetchAndInitialize('/api/inventions', 'inventions');
     fetchAndInitialize('/api/inventors', 'inventors');
     fetchAndInitialize('/api/awards', 'awards');

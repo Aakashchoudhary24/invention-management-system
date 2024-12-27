@@ -137,5 +137,110 @@ def get_all_juries():
     except Exception as e:
         return jsonify({"error": "Failed to fetch juries", "details": str(e)}), 500
 
+@app.route('/api/inventions', methods=['POST'])
+def add_invention():
+    try:
+        conn = connect_db()
+        if conn is None:
+            return jsonify({"error": "Database connection failed"}), 500
+
+        data = request.get_json()
+        
+        with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cursor:
+            cursor.execute("""
+                INSERT INTO invention (invention_name, invention_category, year_of_invention)
+                VALUES (%s, %s, %s)
+                RETURNING invention_id, invention_name, invention_category, year_of_invention
+            """, (data['invention_name'], data['invention_category'], data['year_of_invention']))
+            
+            new_invention = cursor.fetchone()
+            conn.commit()
+            
+            return jsonify({"invention": dict(new_invention)}), 201
+    except Exception as e:
+        conn.rollback()
+        return jsonify({"error": str(e)}), 500
+    finally:
+        conn.close()
+
+@app.route('/api/inventors', methods=['POST'])
+def add_inventor():
+    try:
+        conn = connect_db()
+        if conn is None:
+            return jsonify({"error": "Database connection failed"}), 500
+
+        data = request.get_json()
+        
+        with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cursor:
+            cursor.execute("""
+                INSERT INTO inventor (inventor_fname, inventor_lname, job_type, dob)
+                VALUES (%s, %s, %s, %s)
+                RETURNING inventor_id, inventor_fname, inventor_lname, job_type, dob
+            """, (data['inventor_fname'], data['inventor_lname'], data['job_type'], data['dob']))
+            
+            new_inventor = cursor.fetchone()
+            conn.commit()
+            
+            return jsonify({"inventor": dict(new_inventor)}), 201
+    except Exception as e:
+        conn.rollback()
+        return jsonify({"error": str(e)}), 500
+    finally:
+        conn.close()
+
+@app.route('/api/awards', methods=['POST'])
+def add_award():
+    try:
+        conn = connect_db()
+        if conn is None:
+            return jsonify({"error": "Database connection failed"}), 500
+
+        data = request.get_json()
+        
+        with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cursor:
+            cursor.execute("""
+                INSERT INTO award (award_name, award_category, jury_id)
+                VALUES (%s, %s, %s)
+                RETURNING award_id, award_name, award_category, jury_id
+            """, (data['award_name'], data['award_category'], data['jury_id']))
+            
+            new_award = cursor.fetchone()
+            conn.commit()
+            
+            return jsonify({"award": dict(new_award)}), 201
+    except Exception as e:
+        conn.rollback()
+        return jsonify({"error": str(e)}), 500
+    finally:
+        conn.close()
+
+@app.route('/api/juries', methods=['POST'])
+def add_jury():
+    try:
+        conn = connect_db()
+        if conn is None:
+            return jsonify({"error": "Database connection failed"}), 500
+
+        data = request.get_json()
+        
+        with conn.cursor(cursor_factory=psycopg2.extras.DictCursor) as cursor:
+            cursor.execute("""
+                INSERT INTO jury (jury_name, start_year, end_year)
+                VALUES (%s, %s, %s)
+                RETURNING jury_id, jury_name, start_year, end_year
+            """, (data['jury_name'], data['start_year'], data['end_year'] if 'end_year' in data else None))
+            
+            new_jury = cursor.fetchone()
+            conn.commit()
+            
+            return jsonify({"jury": dict(new_jury)}), 201
+    except Exception as e:
+        conn.rollback()
+        return jsonify({"error": str(e)}), 500
+    finally:
+        conn.close()
+        
+
 if __name__ == '__main__':
     app.run(debug=True)
