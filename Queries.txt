@@ -1,0 +1,226 @@
+CREATE TABLE Invention (
+    Invention_ID VARCHAR(10) PRIMARY KEY,
+    Invention_Name VARCHAR(100) NOT NULL,
+    Year_Of_Invention INT NOT NULL,
+    Invention_Category VARCHAR(50) NOT NULL,
+    Story TEXT
+);
+INSERT INTO Invention (Invention_ID, Invention_Name, Year_Of_Invention, Invention_Category, Story) 
+VALUES
+('INV001', 'AquaDrive', 2004, 'Transportation', 'An amphibious vehicle for land and water travel'),
+('INV002', 'NeuroLinker', 2008, 'Technology', 'A Device connecting brain signals to machines'),
+('INV003', 'Echospehere', 2016, 'Technology', 'A portable sound amplification and projection system'),
+('INV004', 'OxyPure', 2012, 'Health', 'A portable air purifier and oxygen generator'),
+('INV005', 'Air Harvest', 2024, 'Environmental Solutions', 'A Device that extracts water from the air'),
+('INV006', 'AquaClean', 2020, 'Environmental Solutions', 'A system for filtering and purifying ocean water'),
+('INV007', 'BioGuard', 2021, 'Health', 'A wearable device for monitoring vital signs'),
+('INV008', 'SolarPanelX', 2022, 'Energy', 'A next-generation solar panel with ultra-high efficiency'),
+('INV009', 'AutoTracker', 2019, 'Technology', 'An AI-powered system for autonomous vehicle tracking'),
+('INV010', 'AgriBoost', 2023, 'Agriculture', 'A drone-based technology for enhancing crop yields'),
+('INV011', 'OptiHealth', 2023, 'Health', 'An AI-powered health diagnostics tool'),
+('INV012', 'SolarFlex', 2022, 'Energy', 'A flexible solar panel technology'),
+('INV013', 'SmartAgri', 2019, 'Environmental Solutions', 'AI-powered smart farming solutions'),
+('INV014', 'MedFusion', 2020, 'Health', 'Robotic surgery assistant for precision operations'),
+('INV015', 'WaterLoop', 2017, 'Environmental Solutions', 'A system for recycling water in large buildings'),
+('INV016', 'ZeroWaste', 2021, 'Technology', 'A system for transforming waste into usable energy'),
+('INV017', 'QuickHeal', 2024, 'Health', 'An instant wound healing device using advanced gels'),
+('INV018', 'AutoClear', 2022, 'Transportation', 'A fully autonomous vehicle for urban transport'),
+('INV019', 'SmartGrid', 2019, 'Energy', 'A smart grid system for energy distribution optimization'),
+('INV020', 'SeismicEye', 2018, 'Technology', 'A portable earthquake detection and early warning system');
+SELECT * FROM Invention;
+
+CREATE TABLE Inventor (
+    Inventor_ID VARCHAR(15) PRIMARY KEY,
+    Inventor_Fname VARCHAR(50) NOT NULL,
+    Inventor_Lname VARCHAR(50) NOT NULL,
+    Job_Type VARCHAR(50) NOT NULL,
+    DOB DATE NOT NULL,
+    Street VARCHAR(50),
+    Area VARCHAR(50),
+    City VARCHAR(50),
+    Pincode INT,
+    Age INT
+);
+INSERT INTO Inventor (Inventor_ID, Inventor_Fname, Inventor_Lname, Job_Type, DOB, Street, Area, City, Pincode, Age) 
+VALUES
+('Inventor001', 'John', 'Jacob', 'Robotics', '1987-08-13', 's1', 'a1', 'c1', 695121, 37),
+('Inventor002', 'Twinkle', 'Star', 'Mechanic', '1988-09-25', 's2', 'a2', 'c2', 695231, 36),
+('Inventor003', 'Chad', 'Jade', 'Scientist', '1975-05-17', 's3', 'a3', 'c3', 768432, 49),
+('Inventor004', 'Micky', 'Winnie', 'Scientist', '1991-07-28', 's4', 'a4', 'c4', 679012, 33),
+('Inventor005', 'Minnie', 'M', 'Engineer', '1993-03-03', 's5', 'a5', 'c5', 891234, 31),
+('Inventor006', 'Goofy', 'Shelly', 'Doctor', '1987-07-13', 's7', 'a7', 'c7', 658712, 37),
+('Inventor007', 'Beck', 'K', 'Researcher', '1990-04-15', 's8', 'a8', 'c8', 762341, 34),
+('Inventor008', 'Diana', 'J', 'Environmental Scientist', '1998-05-21', 's9', 'a9', 'c9', 671243, 26),
+('Inventor009', 'Daisy', 'H', 'Researcher', '1976-05-01', 's10', 'a10', 'c10', 671342, 48),
+('Inventor010', 'Leo', 'King', 'Doctor', '1992-09-28', 's20', 'a20', 'c20', 852731, 32),
+('Inventor011', 'Sarah', 'Bright', 'Engineer', '1985-06-14', 's21', 'a21', 'c21', 736842, 39),
+('Inventor012', 'Sam', 'Fox', 'Engineer', '1990-11-04', 's22', 'a22', 'c22', 923145, 34),
+('Inventor013', 'Ava', 'Lee', 'Scientist', '1988-03-12', 's23', 'a23', 'c23', 674531, 36),
+('Inventor014', 'Clara', 'White', 'Biologist', '1985-04-17', 's24', 'a24', 'c24', 874561, 39),
+('Inventor015', 'Greg', 'Brown', 'Engineer', '1980-10-25', 's25', 'a25', 'c25', 654321, 44),
+('Inventor016', 'Eliza', 'Stone', 'Doctor', '1993-08-29', 's26', 'a26', 'c26', 912734, 31),
+('Inventor017', 'John', 'Ivy', 'Engineer', '1986-12-15', 's27', 'a27', 'c27', 684567, 38),
+('Inventor018', 'James', 'Peters', 'Environmental Engineer', '1984-02-07', 's28', 'a28', 'c28', 742615, 40),
+('Inventor019', 'Lily', 'Dale', 'Researcher', '1982-09-19', 's29', 'a29', 'c29', 629481, 42),
+('Inventor020', 'Diana', 'J', 'Environmental Scientist', '1998-05-21', 's9', 'a9', 'c9', 671243, 26),
+('Inventor021', 'Daisy', 'H', 'Researcher', '1976-05-01', 's10', 'a10', 'c10', 671342, 48),
+('Inventor022', 'Mason', 'Clark', 'Engineer', '1989-01-21', 's30', 'a30', 'c30', 842736, 35),
+('Inventor023', 'Emma', 'Brown', 'Technologist', '1994-04-15', 's31', 'a31', 'c31', 931845, 30),
+('Inventor024', 'Sarah', 'White', 'Researcher', '1981-12-30', 's32', 'a32', 'c32', 683742, 43),
+('Inventor025', 'Paul', 'Grey', 'Environmental Scientist', '1987-08-04', 's33', 'a33', 'c33', 472615, 37),
+('Inventor026', 'Linda', 'Green', 'Scientist', '1990-06-11', 's34', 'a34', 'c34', 528743, 34),
+('Inventor027', 'Tim', 'Mark', 'Doctor', '1992-03-19', 's35', 'a35', 'c35', 834529, 32),
+('Inventor028', 'Carla', 'Stones', 'Technologist', '1996-11-23', 's36', 'a36', 'c36', 746521, 28),
+('Inventor029', 'Lucas', 'Grey', 'Environmental Scientist', '1995-02-11', 's37', 'a37', 'c37', 927634, 29),
+('Inventor030', 'Sandra', 'Hill', 'Researcher', '1989-08-27', 's38', 'a38', 'c38', 617935, 35),
+('Inventor031', 'Betty', 'Brown', 'Engineer', '1991-09-14', 's39', 'a39', 'c39', 721458, 33),
+('Inventor032', 'Laura', 'Green', 'Scientist', '1994-02-28', 's40', 'a40', 'c40', 738241, 30),
+('Inventor033', 'James', 'Clarke', 'Technologist', '1990-07-02', 's41', 'a41', 'c41', 824356, 34),
+('Inventor034', 'Kelly', 'White', 'Engineer', '1992-12-20', 's42', 'a42', 'c42', 759863, 32),
+('Inventor035', 'Thomas', 'Davis', 'Environmental Scientist', '1986-03-15', 's43', 'a43', 'c43', 758264, 38),
+('Inventor036', 'Holly', 'Black', 'Scientist', '1988-10-09', 's44', 'a44', 'c44', 682374, 36),
+('Inventor037', 'Rachel', 'Green', 'Researcher', '1995-05-25', 's45', 'a45', 'c45', 764532, 29),
+('Inventor038', 'William', 'Black', 'Engineer', '1992-08-14', 's46', 'a46', 'c46', 736924, 32);
+
+SELECT * FROM Inventor;
+CREATE TABLE Award (
+    Award_ID VARCHAR(10) PRIMARY KEY,
+    Award_Name VARCHAR(255) NOT NULL,
+    Significance TEXT NOT NULL,
+    Award_Category VARCHAR(100) NOT NULL,
+    Jury_ID VARCHAR(10) NOT NULL
+);
+INSERT INTO Award (Award_ID, Award_Name, Significance, Award_Category, Jury_ID)
+VALUES
+    ('AW001', 'Best Innovation Award', 'Revolutionized transport', 'Transportation', 'J001'),
+    ('AW002', 'Scientific Breakthrough', 'Enhancing human-machine connection', 'Technology', 'J002'),
+    ('AW003', 'Audio Excellence', 'Advanced portable sound tech', 'Technology', 'J003'),
+    ('AW004', 'Health Innovator', 'Saving lives through better air', 'Health', 'J004'),
+    ('AW005', 'Green Award', 'Sustainable water sourcing', 'Environment', 'J005'),
+    ('AW006', 'Sustainability Award', 'Excellence in sustainable innovation', 'Environment', 'J006'),
+    ('AW007', 'Tech Advancement Award', 'Breakthrough in renewable tech', 'Renewable Energy', 'J007'),
+    ('AW008', 'Health Hero Award', 'Saving lives through advanced tech', 'Health', 'J008'),
+    ('AW009', 'Fashion Forward Award', 'Innovating with recyclable materials', 'Fashion', 'J009'),
+    ('AW010', 'Agricultural Impact', 'Transforming farming with smart devices', 'Agriculture', 'J010'),
+    ('AW011', 'Health Excellence', 'Improving diagnostic accuracy', 'Health', 'J011'),
+    ('AW012', 'Renewable Energy Pioneer', 'Shaping the future of solar power', 'Energy', 'J012'),
+    ('AW013', 'AgriTech Innovator', 'Empowering sustainable farming', 'Environment', 'J013'),
+    ('AW014', 'Surgical Breakthrough', 'Precision in medical operations', 'Health', 'J014'),
+    ('AW015', 'Water Conservation Champion', 'Revolutionizing water usage', 'Environment', 'J015'),
+    ('AW016', 'Sustainability Pioneer', 'Powering communities from waste', 'Technology', 'J016'),
+    ('AW017', 'HealthTech Leader', 'Speeding up wound recovery', 'Health', 'J017'),
+    ('AW018', 'Future Mobility Award', 'Shaping the future of urban travel', 'Transportation', 'J018'),
+    ('AW019', 'Power Efficiency Innovator', 'Optimizing energy distribution', 'Energy', 'J019'),
+    ('AW020', 'Disaster Response Award', 'Protecting lives from natural disasters', 'Technology', 'J020');
+
+
+SELECT * FROM Award;
+CREATE TABLE Nomination (
+    Invention_ID VARCHAR(10) PRIMARY KEY,
+    Award_ID VARCHAR(10) NOT NULL,
+    Year_Of_Nomination INT NOT NULL,
+    Nomination_Status VARCHAR(50) NOT NULL,
+    Nomination_Description TEXT,   -- Added Nomination_Description here
+    Jury_ID VARCHAR(10),         -- Added Jury_ID column here
+    FOREIGN KEY (Invention_ID) REFERENCES Invention(Invention_ID) ON DELETE CASCADE,
+    FOREIGN KEY (Award_ID) REFERENCES Award(Award_ID) ON DELETE CASCADE
+);
+INSERT INTO Nomination (Invention_ID, Award_ID, Year_Of_Nomination, Nomination_Status, Nomination_Description, Jury_ID)
+VALUES
+    ('INV001', 'AW001', 2005, 'Winner', 'Excellent contribution to accessibility', 'J001'),
+    ('INV002', 'AW002', 2009, 'Runner-up', 'A groundbreaking concept in neurotechnology', 'J002'),
+    ('INV003', 'AW003', 2017, 'Winner', 'Innovation in sound projection', 'J003'),
+    ('INV004', 'AW004', 2013, 'Nominated', 'Improved air quality and portability', 'J004'),
+    ('INV005', 'AW005', 2025, 'Nominated', 'Essential for arid regions', 'J005'),
+    ('INV006', 'AW006', 2015, 'Nominated', 'Excellence in sustainable innovation', 'J006'),
+    ('INV007', 'AW007', 2018, 'Winner', 'Breakthrough in renewable tech', 'J007'),
+    ('INV008', 'AW008', 2020, 'Nominated', 'Saving lives through advanced tech', 'J008'),
+    ('INV009', 'AW009', 2022, 'Runner-up', 'Innovating with recyclable materials', 'J009'),
+    ('INV010', 'AW010', 2017, 'Winner', 'Transforming farming with smart devices', 'J010'),
+    ('INV011', 'AW011', 2023, 'Winner', 'Improving diagnostic accuracy', 'J011'),
+    ('INV012', 'AW012', 2023, 'Nominated', 'Shaping the future of solar power', 'J012'),
+    ('INV013', 'AW013', 2019, 'Winner', 'Empowering sustainable farming', 'J013'),
+    ('INV014', 'AW014', 2020, 'Runner-up', 'Enhancing surgical outcomes', 'J014'),
+    ('INV015', 'AW015', 2017, 'Winner', 'Revolutionizing water usage', 'J015'),
+    ('INV016', 'AW016', 2021, 'Nominated', 'Powering communities from waste', 'J016'),
+    ('INV017', 'AW017', 2024, 'Nominated', 'Revolutionary healing technology', 'J017'),
+    ('INV018', 'AW018', 2022, 'Runner-up', 'Complete autonomy in public transport', 'J018'),
+    ('INV019', 'AW019', 2019, 'Winner', 'Improving energy access and efficiency', 'J019'),
+    ('INV020', 'AW020', 2018, 'Winner', 'Real-time seismic detection', 'J020');
+SELECT * FROM Nomination;
+CREATE TABLE Jury (
+    Jury_ID VARCHAR(10) PRIMARY KEY,
+    Jury_Name VARCHAR(100) NOT NULL,
+    Start_Year INT NOT NULL,
+    End_Year INT NOT NULL
+);
+INSERT INTO Jury (Jury_ID, Jury_Name, Start_Year, End_Year)
+VALUES
+    ('J001', 'Alice Davis', 2003, 2005),
+    ('J002', 'Robert Brown', 2006, 2009),
+    ('J003', 'Linda Green', 2016, 2019),
+    ('J004', 'Kevin Smith', 2010, 2017),
+    ('J005', 'Emma Wright', 2020, 2025),
+    ('J006', 'Sarah Clark', 2015, 2018),
+    ('J007', 'Mark Adams', 2018, 2020),
+    ('J008', 'Rachel Carter', 2020, 2023),
+    ('J009', 'Amanda Taylor', 2022, 2024),
+    ('J010', 'Paul Harris', 2017, 2020),
+    ('J011', 'Patricia Allen', 2022, 2024),
+    ('J012', 'Derek North', 2021, 2023),
+    ('J013', 'Lara Green', 2018, 2020),
+    ('J014', 'Paul Ryan', 2019, 2021),
+    ('J015', 'Olivia White', 2016, 2018);
+
+SELECT * FROM Jury;
+CREATE TABLE Invention_Management (
+    Invention_ID VARCHAR(20),
+    Award_ID VARCHAR(20),
+    Inventor_ID VARCHAR(20),
+    PRIMARY KEY (Invention_ID, Award_ID, Inventor_ID),
+    FOREIGN KEY (Invention_ID) REFERENCES Invention(Invention_ID) ON DELETE CASCADE,
+    FOREIGN KEY (Award_ID) REFERENCES Award(Award_ID) ON DELETE CASCADE,
+    FOREIGN KEY (Inventor_ID) REFERENCES Inventor(Inventor_ID) ON DELETE CASCADE
+);
+INSERT INTO Invention_Management (Invention_ID, Award_ID, Inventor_ID)
+VALUES
+    ('INV001', 'AW001', 'Inventor001'),
+    ('INV001', 'AW001', 'Inventor002'),
+    ('INV002', 'AW002', 'Inventor003'),
+    ('INV002', 'AW002', 'Inventor004'),
+    ('INV002', 'AW002', 'Inventor005'),
+    ('INV003', 'AW003', 'Inventor003'),
+    ('INV004', 'AW004', 'Inventor006'),
+    ('INV004', 'AW004', 'Inventor007'),
+    ('INV005', 'AW005', 'Inventor008'),
+    ('INV005', 'AW005', 'Inventor009'),
+    ('INV006', 'AW006', 'Inventor010'),
+    ('INV006', 'AW006', 'Inventor011'),
+    ('INV007', 'AW007', 'Inventor012'),
+    ('INV007', 'AW007', 'Inventor013'),
+    ('INV008', 'AW008', 'Inventor014'),
+    ('INV008', 'AW008', 'Inventor015'),
+    ('INV009', 'AW009', 'Inventor016'),
+    ('INV009', 'AW009', 'Inventor017'),
+    ('INV010', 'AW010', 'Inventor018'),
+    ('INV010', 'AW010', 'Inventor019'),
+    ('INV011', 'AW011', 'Inventor020'),
+    ('INV011', 'AW011', 'Inventor021'),
+    ('INV012', 'AW012', 'Inventor022'),
+    ('INV012', 'AW012', 'Inventor023'),
+    ('INV013', 'AW013', 'Inventor024'),
+    ('INV013', 'AW013', 'Inventor025'),
+    ('INV014', 'AW014', 'Inventor026'),
+    ('INV014', 'AW014', 'Inventor027'),
+    ('INV015', 'AW015', 'Inventor028'),
+    ('INV015', 'AW015', 'Inventor029'),
+    ('INV016', 'AW016', 'Inventor030'),
+    ('INV016', 'AW016', 'Inventor031'),
+    ('INV017', 'AW017', 'Inventor032'),
+    ('INV017', 'AW017', 'Inventor033'),
+    ('INV018', 'AW018', 'Inventor034'),
+    ('INV019', 'AW019', 'Inventor035'),
+    ('INV019', 'AW019', 'Inventor036'),
+    ('INV020', 'AW020', 'Inventor037'),
+    ('INV020', 'AW020', 'Inventor038');
+SELECT * FROM Invention_Management;
